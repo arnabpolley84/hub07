@@ -1,26 +1,62 @@
+{% if template != 'index' %}
 <nav class="breadcrumbs" aria-label="Breadcrumb">
-  <ol>
-    <li><a href="{{ routes.root_url }}">Home</a></li>
+  <ol class="breadcrumbs__list">
+    <li class="breadcrumbs__item">
+      <a href="{{ routes.root_url }}">Home</a>
+    </li>
 
     {% if template contains 'collection' %}
-      <li>{{ collection.title }}</li>
+      <li class="breadcrumbs__item breadcrumbs__current">
+        {{ collection.title }}
+      </li>
 
     {% elsif template contains 'product' %}
       {% if collection %}
-        <li>
+        <li class="breadcrumbs__item">
           <a href="{{ collection.url }}">{{ collection.title }}</a>
         </li>
       {% endif %}
-      <li>{{ product.title }}</li>
+      <li class="breadcrumbs__item breadcrumbs__current">
+        {{ product.title }}
+      </li>
 
     {% elsif template contains 'page' %}
-      <li>{{ page.title }}</li>
+      <li class="breadcrumbs__item breadcrumbs__current">
+        {{ page.title }}
+      </li>
 
     {% elsif template contains 'blog' %}
-      <li>
+      <li class="breadcrumbs__item">
         <a href="{{ blog.url }}">{{ blog.title }}</a>
       </li>
-      <li>{{ article.title }}</li>
+      <li class="breadcrumbs__item breadcrumbs__current">
+        {{ article.title }}
+      </li>
     {% endif %}
   </ol>
 </nav>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Breadcrumbs",
+  "settings": [
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Breadcrumbs"
+    }
+  ]
+}
+{% endschema %}

@@ -60,3 +60,38 @@
   ]
 }
 {% endschema %}
+
+
+<style>
+.breadcrumbs {
+  margin: 12px 0;
+}
+
+.breadcrumbs__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.breadcrumbs__item::after {
+  content: "/";
+  margin-left: 6px;
+}
+
+.breadcrumbs__item:last-child::after {
+  content: "";
+}
+
+.breadcrumbs__item a {
+  text-decoration: none;
+  color: #666;
+}
+
+.breadcrumbs__current {
+  color: #000;
+  font-weight: 500;
+}
+
+</style>

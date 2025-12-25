@@ -225,9 +225,17 @@
         "padding-block-start": 0,
         "padding-block-end": 32
       }
+    },
+    "breadcrumb_6JrWHW": {
+      "type": "breadcrumb",
+      "name": "Breadcrumbs",
+      "settings": {
+        "alignment": "left"
+      }
     }
   },
   "order": [
+    "breadcrumb_6JrWHW",
     "section",
     "main"
   ]
